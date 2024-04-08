@@ -14,6 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_m31.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_m30s.mk
 
-COMMON_LUNCH_CHOICES := omni_m31-eng
+COMMON_LUNCH_CHOICES := omni_m30s-eng
