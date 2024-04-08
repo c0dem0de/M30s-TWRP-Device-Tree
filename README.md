@@ -1,10 +1,20 @@
-# Android device tree for samsung SM-M307F (m30s)
+## PBRP device tree for the Samsung M315F.
 
+## How to compile
+
+1. Set up the build environment following instructions from [here](https://github.com/PitchBlackRecoveryProject/manifest_pb)
+2. Clone the device tree in the root of PBRP source:
 ```
-#
-# Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
+git clone https://github.com/naz664/device_samsung_m31.git device/samsung/m31 -b PBRP-11
 ```
+3. To build:
+```
+export ALLOW_MISSING_DEPENDENCIES=true && . build/envsetup.sh && lunch omni_m31-eng && mka recoveryimage -j$(nproc --all)
+```
+## Credits
+- [Yilliee](https://github.com/Yilliee)
+- [Soulr344](https://github.com/soulr344)
+
+
+
+
