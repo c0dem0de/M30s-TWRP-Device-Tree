@@ -1,10 +1,10 @@
-# Android device tree for samsung SM-M307F (m30s)
+## Recovery Device Tree for the Samsung Galaxy M30s
 
-```
-#
-# Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-```
+## How-to compile it:
+
+To build:
+
+```sh
+. build/envsetup.sh
+lunch omni_m30s-eng
+make recoveryimage
