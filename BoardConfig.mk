@@ -51,11 +51,12 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage
 BOARD_KERNEL_IMAGE_NAME := zImage
-
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos9611
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --header_version 1 --board SRPSE30A002RU
 
 # Platform
-TARGET_BOARD_PLATFORM := exynos5
+TARGET_BOARD_PLATFORM := exynos9611
 TARGET_BOARD_PLATFORM_GPU := mali-g72
 
 # Filesystem
@@ -77,7 +78,6 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # TWRP specific build flags
-RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
@@ -89,11 +89,11 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_EXTRA_LANGUAGES := true
-TW_USE_NEW_MINADBD := true
-TW_USE_TOOLBOX := true
-TW_EXCLUDE_TWRPAPP := true
 PLATFORM_VERSION := 11
 PLATFORM_SECURITY_PATCH := 2099-12-31
+
+# Haptics
+TW_USE_SAMSUNG_HAPTICS := true
 
 # Debug-tools
 TWRP_INCLUDE_LOGCAT := true
