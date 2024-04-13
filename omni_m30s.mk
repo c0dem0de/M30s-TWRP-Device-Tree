@@ -18,9 +18,13 @@
 PRODUCT_RELEASE_NAME := m30s
 
 $(call inherit-product, build/target/product/embedded.mk)
+$(call inherit-product, build/target/product/aosp_base.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/pb/config/common.mk)
+
+# Include any options that can't be included in BoardConfig.mk
+$(call inherit-product, device/samsung/m30s/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := m30s
