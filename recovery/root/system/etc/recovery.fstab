@@ -26,16 +26,25 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#<src>                        <mnt_point>     <type>       <mnt_flags and options>    <fs_mgr_flags>
-system                         /system         ext4        ro,barrier=1,discard      avb=vbmeta,logical,first_stage_mount
-vendor                         /vendor         ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
-product                        /product        ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
-odm                            /odm            ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
+/boot           emmc    /dev/block/platform/13520000.ufs/by-name/boot
+/cache          ext4    /dev/block/platform/13520000.ufs/by-name/cache          flags=backup=1;
+/data           f2fs	/dev/block/platform/13520000.ufs/by-name/userdata
+/dtb            emmc    /dev/block/platform/13520000.ufs/by-name/dtb            flags=backup=1;display="DTB"
+/dtbo           emmc    /dev/block/platform/13520000.ufs/by-name/dtbo           flags=backup=1;display="DTBO"
+/efs            ext4    /dev/block/platform/13520000.ufs/by-name/efs            flags=backup=1;display="EFS"
+/modem          emmc    /dev/block/platform/13520000.ufs/by-name/radio          flags=backup=1;display="Modem Firmware"
+/product        ext4    /dev/block/platform/13520000.ufs/by-name/product        flags=backup=1;display="Product";wipeingui
+/product_image  emmc    /dev/block/platform/13520000.ufs/by-name/product        flags=backup=1;flashimg;display="Product Image (CSC)"
+/recovery       emmc    /dev/block/platform/13520000.ufs/by-name/recovery       flags=backup=1;flashimg
+/system_root    ext4    /dev/block/platform/13520000.ufs/by-name/system         flags=display="System";backup=1
+/system_image   emmc    /dev/block/platform/13520000.ufs/by-name/system         flags=backup=1;flashimg
+/up_param       emmc    /dev/block/platform/13520000.ufs/by-name/up_param       flags=display="Splash Image";backup=1;flashimg=1
+/vbmeta         emmc    /dev/block/platform/13520000.ufs/by-name/vbmeta         flags=backup=1;flashimg
+/vendor         ext4    /dev/block/platform/13520000.ufs/by-name/vendor         flags=backup=1;wipeingui
+/vendor_image   emmc    /dev/block/platform/13520000.ufs/by-name/vendor         flags=backup=1;flashimg
 
-/dev/block/by-name/metadata    /metadata       ext4        defaults                  wait,first_stage_mount
-/dev/block/by-name/userdata    /data           f2fs        noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	recoveryonly,length=-20480
+/misc           emmc    /dev/block/platform/13520000.ufs/by-name/misc           flags=backup=0;display="Misc"
 
-# Add misc for GOTA
-/dev/block/by-name/misc        /misc            emmc       defaults                  recoveryonly
-
+/external_sd    vfat    /dev/block/mmcblk0p1 /dev/block/mmcblk0                 flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg        vfat    /dev/block/sdf1 /dev/block/sdf                          flags=display="USB-OTG";storage;wipeingui;removable
 
